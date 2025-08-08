@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+  --color-hover: #aaaaaa;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Blog content typography (minimal, plugin-free) */
+.blog-content {
+  @apply leading-relaxed text-[17px] max-w-none;
+}
+
+.blog-content h1 {
+  @apply text-3xl sm:text-4xl font-bold mt-8;
+}
+
+.blog-content h2 {
+  @apply text-2xl sm:text-3xl font-bold mt-8;
+}
+
+.blog-content h3 {
+  @apply text-xl sm:text-2xl font-semibold mt-6;
+}
+
+.blog-content h4 {
+  @apply text-lg font-semibold mt-5;
+}
+
+.blog-content p {
+  @apply mt-4 text-foreground/80;
+}
+
+.blog-content ul {
+  @apply mt-4 list-disc pl-6 space-y-2;
+}
+
+.blog-content ol {
+  @apply mt-4 list-decimal pl-6 space-y-2;
+}
+
+.blog-content blockquote {
+  @apply mt-4 border-l-2 border-white/10 pl-4 text-foreground/75;
+}
+
+.blog-content pre {
+  @apply mt-4 bg-white/5 border border-white/10 rounded-lg p-4 overflow-x-auto;
+}
+
+.blog-content code {
+  font-family: var(--font-mono, ui-monospace), SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.blog-content :not(pre)>code {
+  @apply bg-white/5 rounded px-1 py-0.5 text-sm;
+}
+
+.blog-content a {
+  @apply underline decoration-white/20 underline-offset-4 hover:decoration-hover;
 }
